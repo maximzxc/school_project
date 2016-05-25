@@ -98,4 +98,4 @@ CACHES = {
     }
 }
 '''
-SITE_ID=1
+SITE_ID = u'53aa6456984edd0d5e547e03'
