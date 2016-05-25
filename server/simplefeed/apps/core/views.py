@@ -10,11 +10,12 @@ from django.views.generic import (
 from pure_pagination.mixins import PaginationMixin
 from braces.views import OrderableListMixin
 from enhanced_cbv.views import ListFilteredView
-from allauth.account.utils import complete_signup
-from allauth.account.app_settings import EMAIL_VERIFICATION
+# from allauth.account.utils import complete_signup
+# from allauth.account.app_settings import EMAIL_VERIFICATION
 
 from .decorators import ForbiddenUser
 
+'''
 from .forms import LoginForm
 from .forms import SignUpUserForm
 
@@ -47,3 +48,4 @@ def register(request):
     return render(request, "register.html", {
         "signup_form_user": signup_form_user,
     })
+'''

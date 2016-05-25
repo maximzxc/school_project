@@ -8,5 +8,5 @@ from core.api import router
 urlpatterns = patterns(
     '',
     url(r'^api/', include(router.urls, namespace='api')),
-    url("^register/$", register, name="register"),
+    # url("^register/$", register, name="register"),
 )
