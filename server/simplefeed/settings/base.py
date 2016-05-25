@@ -143,7 +143,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
 
-    'constance.context_processors.config',
+    # 'constance.context_processors.config',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -197,8 +197,8 @@ DJANGO_APPS = (
     'django_extensions',
     'pure_pagination',
     'crispy_forms',
-    'constance',
-    'constance.backends.database',
+    # 'constance',
+    # 'constance.backends.database',
     'storages',
     'autofixture',
     'django_select2',
@@ -208,11 +208,12 @@ DJANGO_APPS = (
 )
 
 # DEBUG-specific apps
+'''
 if DEBUG:
     DJANGO_APPS += (
         'debug_toolbar',
     )
-
+'''
 
 # LOGGING CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
@@ -259,13 +260,6 @@ WSGI_APPLICATION = 'wsgi.application'
 
 # AUTHORISATION/AUTHENTICATION CONFIGURATION
 # account-related apps
-DJANGO_APPS += (
-    'avatar',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-)
-
 # Allauth providers
 DJANGO_APPS += (
 )
@@ -273,7 +267,7 @@ DJANGO_APPS += (
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
+    # "allauth.account.auth_backends.AuthenticationBackend",
 )
 
 REST_FRAMEWORK = {

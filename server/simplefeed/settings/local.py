@@ -52,6 +52,7 @@ CACHES = {
 # TOOLBAR CONFIGURATION
 # See:
 # http://django-debug-toolbar.readthedocs.org/en/latest/installation.html#explicit-setup
+'''
 if 'debug_toolbar' not in INSTALLED_APPS:
     INSTALLED_APPS += (
         'debug_toolbar',
@@ -60,6 +61,7 @@ if 'debug_toolbar' not in INSTALLED_APPS:
 MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+'''
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
@@ -70,3 +72,29 @@ INTERNAL_IPS = ('127.0.0.1',)
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # MEDIA_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+
+DATABASES = {
+   'default' : {
+      'ENGINE' : 'django_mongodb_engine',
+      'NAME' : 'my_database',
+      'HOST': 'mongodb://10.11.0.11,10.11.0.12,10.11.0.13/?replicaSet=rs0',
+   }
+}
+
+'''
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": [
+            "redis://127.0.0.1:6379/1",
+            "redis://127.0.0.1:6379/2",
+        ],
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.ShardClient",
+        }
+    }
+}
+'''
