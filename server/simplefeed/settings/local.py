@@ -81,21 +81,43 @@ DATABASES = {
    }
 }
 
-'''
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"
-
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": [
-            "redis://127.0.0.1:6379/1",
-            "redis://127.0.0.1:6379/2",
+            "redis://127.0.0.1:6380",
+            "redis://127.0.0.1:6381",
+            "redis://127.0.0.1:6382",
         ],
         "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.ShardClient",
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
 }
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
 '''
-SITE_ID = u'53aa6456984edd0d5e547e03'
+CACHES = {
+    "default": {
+        "BACKEND": "redis_cache.RedisCache",
+        "LOCATION": [
+            "redis://172.17.0.2:7000",
+            "redis://172.17.0.2:7001",
+            "redis://172.17.0.2:7002",
+            "redis://172.17.0.2:7003",
+            "redis://172.17.0.2:7004",
+            "redis://172.17.0.2:7005",
+        ],
+        "OPTIONS": {
+            'PARSER_CLASS': 'redis.connection.HiredisParser',
+            'PICKLE_VERSION': 2,
+            'MASTER_CACHE': "redis://172.17.0.2:7000",
+        }
+    }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+'''

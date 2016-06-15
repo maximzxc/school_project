@@ -14,14 +14,19 @@ from core.models import (
 
 
 class UserSerializer(serializers.ModelSerializer):
+    id = serializers.CharField(required=False)
 
     class Meta:
         model = User
+        fields=('id', 'email', 'password')
 
 
 class MessageSerializer(serializers.ModelSerializer):
+    id = serializers.CharField(required=False)
+
 
     class Meta:
+        fields=('id', 'sender')
         model = Message
 
 

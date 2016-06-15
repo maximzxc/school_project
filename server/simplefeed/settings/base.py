@@ -272,10 +272,6 @@ AUTHENTICATION_BACKENDS = (
 
 REST_FRAMEWORK = {
     'PAGE_SIZE': 100,
-    'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework.filters.DjangoFilterBackend',
-        'rest_framework.filters.OrderingFilter',
-    )
 }
 '''
 TEMPLATE_CONTEXT_PROCESSORS += (
